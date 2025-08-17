@@ -9,5 +9,5 @@ RUN mvn -q -e -DskipTests clean package
 FROM eclipse-temurin:21-jre
 WORKDIR /app
 EXPOSE 8081
-COPY --from=build /app/target/brinquedos-revisao-0.0.1-SNAPSHOT.jar app.jar
+COPY --from=build /app/target/*.jar app.jar
 ENTRYPOINT ["java","-jar","/app/app.jar"]
