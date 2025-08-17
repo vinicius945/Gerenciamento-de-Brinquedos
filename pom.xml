@@ -45,6 +45,7 @@
 		<dependency>
 			<groupId>com.oracle.database.jdbc</groupId>
 			<artifactId>ojdbc11</artifactId>
+			<version>21.11.0.0</version>
 			<scope>runtime</scope>
 		</dependency>
 
@@ -63,7 +64,6 @@
 	</dependencies>
 
 	<build>
-		<!-- Configuração de recursos para evitar erro de encoding -->
 		<resources>
 			<resource>
 				<directory>src/main/resources</directory>
@@ -104,5 +104,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
 </project>
