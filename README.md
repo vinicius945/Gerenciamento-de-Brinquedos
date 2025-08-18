@@ -32,6 +32,7 @@ Esta solução foi desenvolvida com foco em boas práticas de arquitetura e tecn
 
 ## 🛠️ Tecnologias Utilizadas
 
+- Desenvolvido via IntelliJ
 - Java 17 + Spring Boot 3.x
 - Spring Data JPA (com Oracle DB)
 - Lombok para redução de boilerplate
