@@ -39,6 +39,8 @@ Esta solução foi desenvolvida com foco em boas práticas de arquitetura e tecn
 - Maven para gerenciamento de dependências
 - Deploy em nuvem (Render)
 
+<img width="1020" height="621" alt="image" src="https://github.com/user-attachments/assets/77f39a31-7e16-4159-b713-29c62bbdc8ff" />
+
 ---
 
 ## 🗂️ Entidade
@@ -75,6 +77,8 @@ curl -X POST https://brinquedos-revisao-java-cp4-2025.onrender.com/brinquedos \
 "preco": 49.90
 }'
 
+<img width="1365" height="680" alt="image" src="https://github.com/user-attachments/assets/ea9f942f-c5aa-4bc6-9cf2-b472ebf6c7af" />
+
 ### 🔹 Atualizar um Brinquedo (PUT)
 
 curl -X PUT https://brinquedos-revisao-java-cp4-2025.onrender.com/brinquedos/[ID] \
@@ -87,6 +91,8 @@ curl -X PUT https://brinquedos-revisao-java-cp4-2025.onrender.com/brinquedos/[ID
 "preco": 79.90
 }'
 
+<img width="1365" height="680" alt="image" src="https://github.com/user-attachments/assets/c9448e7b-20db-45e0-9d2a-58dc0abc0400" />
+
 ### 🔹 Atualizar parcialmente um Brinquedo (PATCH)
 
 curl -X PATCH https://brinquedos-revisao-java-cp4-2025.onrender.com/brinquedos/[ID] \
@@ -95,13 +101,25 @@ curl -X PATCH https://brinquedos-revisao-java-cp4-2025.onrender.com/brinquedos/[
 "preco": 59.90
 }'
 
+<img width="1365" height="679" alt="image" src="https://github.com/user-attachments/assets/08f96405-3943-4706-a85a-08d272d64ea8" />
+
 ### 🔹 Listar Todos os Brinquedos
 
 curl https://brinquedos-revisao-java-cp4-2025.onrender.com/brinquedos
 
+<img width="1365" height="679" alt="image" src="https://github.com/user-attachments/assets/f5076ac2-71af-4c62-a9b1-802b7ead91eb" />
+
+### 🔹 Listar Brinquedo por Id
+
+curl https://brinquedos-revisao-java-cp4-2025.onrender.com/brinquedos/[ID]
+
+<img width="1365" height="681" alt="image" src="https://github.com/user-attachments/assets/c6befc16-e1ef-4308-91b6-e21d13ff0591" />
+
 ### 🔹 Excluir um Brinquedo
 
 curl -X DELETE https://brinquedos-revisao-java-cp4-2025.onrender.com/brinquedos/[ID]
+
+<img width="1365" height="678" alt="image" src="https://github.com/user-attachments/assets/952aaf2f-70d9-47aa-af12-f836db504e9e" />
 
 ---
 
