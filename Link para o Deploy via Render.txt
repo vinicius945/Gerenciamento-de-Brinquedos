@@ -1,0 +1,9 @@
+URL de deploy:
+
+https://brinquedos-revisao-java-cp4-2025.onrender.com
+
+
+
+URL da página de deploy:
+
+https://dashboard.render.com/web/srv-d2h4nmn5r7bs73fnfth0/deploys/dep-d2h73hjuibrs73f0oqhg
