@@ -1,0 +1,45 @@
+version: '3.9'
+
+services:
+  oracle:
+    image: gvenzl/oracle-xe:21.3.0-slim
+    container_name: oracle-db
+    ports:
+      - "1521:1521"
+      - "8081:8080"
+    environment:
+      ORACLE_PASSWORD: admin
+      APP_USER: admin
+      APP_USER_PASSWORD: admin
+    volumes:
+      - oracle_data:/opt/oracle/oradata
+    networks:
+      - redeapp
+    restart: always
+
+  app:
+    build: .
+    container_name: api_spring
+    depends_on:
+      - oracle
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:oracle:thin:@oracle:1521/XEPDB1
+      SPRING_DATASOURCE_USERNAME: admin
+      SPRING_DATASOURCE_PASSWORD: admin
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+    ports:
+      - "8080:8080"
+    networks:
+      - redeapp
+    restart: always
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:8080/actuator/health || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+volumes:
+  oracle_data:
+
+networks:
+  redeapp:
