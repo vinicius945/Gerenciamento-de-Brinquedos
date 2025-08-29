@@ -1,13 +1,12 @@
-# Etapa de build
-FROM maven:3.9.4-eclipse-temurin-17 AS build
-WORKDIR /app
-COPY pom.xml .
-COPY src ./src
-RUN mvn clean package -DskipTests
+# Use a imagem oficial do OpenJDK
+FROM openjdk:17-jdk-alpine
 
-# Etapa de runtime
-FROM eclipse-temurin:17-jdk
+# Crie um diretório para a aplicação
 WORKDIR /app
-COPY --from=build /app/target/*.jar app.jar
-EXPOSE 8081
-ENTRYPOINT ["java", "-jar", "app.jar"]
+
+# Copie o arquivo JAR (substitua pelo nome do seu JAR)
+COPY target/gerenciamento-brinquedos-0.0.1-SNAPSHOT.jar app.jar
+
+# Execute a aplicação
+USER 1000
+ENTRYPOINT ["java","-jar","app.jar"]
