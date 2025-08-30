@@ -1,45 +1,28 @@
-version: '3.9'
+version: '3.8'
 
 services:
-  oracle_db:
-    image: container-registry.oracle.com/database/express:21.3.0-xe
-    container_name: oracle_db
-    restart: unless-stopped
-    ports:
-      - "1521:1521"
+  # Serviço para o banco de dados PostgreSQL
+  database:
+    image: postgres:14-alpine
+    container_name: postgres_local
+    restart: always
     environment:
-      ORACLE_PASSWORD: adminpass
-    volumes:
-      - oracle_data:/opt/oracle/oradata
-    healthcheck:
-      test: ["CMD", "bash", "-c", "echo 'SELECT 1 FROM dual;' | sqlplus -s system/adminpass@//localhost:1521/XEPDB1 >/dev/null 2>&1"]
-      interval: 30s
-      timeout: 15s
-      retries: 40
-      start_period: 180s
+      POSTGRES_USER: usuario
+      POSTGRES_PASSWORD: senha_segura
+      POSTGRES_DB: brinquedos_revisao
+    ports:
+      - "5432:5432"
 
-  api_spring:
+  # Serviço para a sua aplicação Spring Boot
+  app:
     build: .
-    container_name: api_spring
-    depends_on:
-      oracle_db:
-        condition: service_healthy
+    container_name: gerenciamento-brinquedos
+    restart: always
     ports:
       - "8081:8081"
+    depends_on:
+      - database
     environment:
-      SPRING_DATASOURCE_URL: jdbc:oracle:thin:@oracle_db:1521/XEPDB1
-      SPRING_DATASOURCE_USERNAME: system
-      SPRING_DATASOURCE_PASSWORD: adminpass
-    networks:
-      - backend
-    healthcheck:
-      test: ["CMD-SHELL", "curl -f http://localhost:8081/actuator/health || exit 1"]
-      interval: 30s
-      retries: 5
-      start_period: 20s
-
-volumes:
-  oracle_data:
-
-networks:
-  backend:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://database:5432/brinquedos_revisao
+      - SPRING_DATASOURCE_USERNAME=usuario
+      - SPRING_DATASOURCE_PASSWORD=senha_segura
