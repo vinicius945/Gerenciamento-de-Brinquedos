@@ -26,3 +26,8 @@ services:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://database:5432/brinquedos_revisao
       - SPRING_DATASOURCE_USERNAME=usuario
       - SPRING_DATASOURCE_PASSWORD=senha_segura
+    healthcheck:
+      test: [ "CMD", "curl", "--fail", "http://localhost:8081/actuator/health" ]
+      interval: 30s
+      timeout: 10s
+      retries: 5

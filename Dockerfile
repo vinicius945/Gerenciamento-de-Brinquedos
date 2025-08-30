@@ -16,17 +16,24 @@ COPY src ./src
 # Empacota a aplicação em um arquivo .jar
 RUN mvn clean package -DskipTests
 
+# --- Início da etapa de execução ---
 # Usa uma imagem base menor para a execução do .jar
 FROM openjdk:17-slim
 
 # Define o diretório de trabalho
 WORKDIR /app
 
+# Cria um grupo e um usuário sem privilégios
+RUN groupadd --system spring && useradd --system --gid spring spring
+
+# Copia o arquivo .jar da etapa de build e muda o proprietário para o novo usuário
+COPY --from=builder --chown=spring:spring /app/target/*.jar app.jar
+
+# Define o novo usuário para executar a aplicação
+USER spring
+
 # Expõe a porta que a aplicação usa
 EXPOSE 8081
-
-# Copia o arquivo .jar da etapa de build
-COPY --from=builder /app/target/*.jar app.jar
 
 # Define o comando para rodar a aplicação
 ENTRYPOINT ["java", "-jar", "app.jar"]
