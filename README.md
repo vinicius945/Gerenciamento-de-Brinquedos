@@ -26,7 +26,7 @@ Esta solução foi desenvolvida com foco em boas práticas de arquitetura e tecn
 - Validação de campos utilizando **Jakarta Validation**
 - Retorno de dados seguindo o padrão **HATEOAS** (nível de maturidade 3)
 - Testes de API via **Insomnia** ou **Postman**
-- Deploy em nuvem via Render ([Link do Deploy](https://brinquedos-revisao-java-cp4-2025.onrender.com))
+- Deploy em nuvem via Azure e Docker Compose
 
 ---
 
@@ -50,6 +50,11 @@ Esta solução foi desenvolvida com foco em boas práticas de arquitetura e tecn
     - Campos: `id`, `nome`, `tipo`, `classificacao`, `tamanho`, `preco`
 
 ---
+
+
+# Arquitetura nova:
+
+%3CmxGraphModel%3E%3Croot%3E%3CmxCell%20id%3D%220%22%2F%3E%3CmxCell%20id%3D%221%22%20parent%3D%220%22%2F%3E%3CmxCell%20id%3D%222%22%20value%3D%22%22%20style%3D%22endArrow%3Dopen%3BendFill%3D1%3BendSize%3D12%3Bhtml%3D1%3Brounded%3D0%3B%22%20edge%3D%221%22%20parent%3D%221%22%3E%3CmxGeometry%20width%3D%22160%22%20relative%3D%221%22%20as%3D%22geometry%22%3E%3CmxPoint%20x%3D%22770%22%20y%3D%22174.47%22%20as%3D%22sourcePoint%22%2F%3E%3CmxPoint%20x%3D%22700%22%20y%3D%22174.47%22%20as%3D%22targetPoint%22%2F%3E%3C%2FmxGeometry%3E%3C%2FmxCell%3E%3C%2Froot%3E%3C%2FmxGraphModel%3E
 
 ## ⚙️ Endpoints Principais (REST API)
 
