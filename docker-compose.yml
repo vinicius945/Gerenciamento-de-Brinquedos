@@ -1,7 +1,6 @@
 version: '3.8'
 
 services:
-  # Serviço para o banco de dados PostgreSQL
   database:
     image: postgres:14-alpine
     container_name: postgres_local
@@ -12,8 +11,9 @@ services:
       POSTGRES_DB: brinquedos_revisao
     ports:
       - "5432:5432"
+    networks:
+      - brinquedos-net
 
-  # Serviço para a sua aplicação Spring Boot
   app:
     build: .
     container_name: gerenciamento-brinquedos
@@ -31,3 +31,9 @@ services:
       interval: 30s
       timeout: 10s
       retries: 5
+    networks:
+      - brinquedos-net
+
+networks:
+  brinquedos-net:
+    driver: bridge
