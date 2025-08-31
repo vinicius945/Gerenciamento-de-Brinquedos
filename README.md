@@ -1,6 +1,7 @@
 # 🧸 Brinquedos Revisão Java 2025 - API para Gestão de Brinquedos Esportivos Infantis
 
-Projeto desenvolvido para o **Checkpoint 4 de Java Advamced**, que consiste em uma **API RESTful** para gerenciamento de brinquedos esportivos destinados a crianças de até 12 anos, contemplando **CRUD completo**, persistência no banco Oracle FIAP, validação e HATEOAS.
+Este projeto é uma **API RESTful** para gerenciar brinquedos. A solução utiliza **Docker Compose** para orquestrar a aplicação Spring Boot e um banco de dados PostgreSQL em ambientes conteinerizados.
+
 
 ---
 
@@ -21,24 +22,26 @@ Projeto desenvolvido para o **Checkpoint 4 de Java Advamced**, que consiste em u
 
 Esta solução foi desenvolvida com foco em boas práticas de arquitetura e tecnologias modernas, permitindo:
 
-- Cadastro e gerenciamento de **brinquedos esportivos infantis**
-- Persistência de dados em **Oracle Database** via **Spring Data JPA**
-- Validação de campos utilizando **Jakarta Validation**
-- Retorno de dados seguindo o padrão **HATEOAS** (nível de maturidade 3)
-- Testes de API via **Insomnia** ou **Postman**
-- Deploy em nuvem via Azure e Docker Compose
+Cadastro e gerenciamento de brinquedos esportivos infantis: A aplicação continua cumprindo o seu objetivo principal, que é gerenciar os dados de brinquedos.
+
+Persistência de dados em PostgreSQL: A persistência de dados foi migrada do Oracle DB para o PostgreSQL usando Spring Data JPA, de acordo com a sua nova arquitetura com Docker Compose.
+
+Validação de campos utilizando Jakarta Validation: A validação de campos continua sendo um componente importante para a integridade dos dados da sua API.
+
+Retorno de dados seguindo o padrão HATEOAS (nível de maturidade 3): A API continua fornecendo links HATEOAS para guiar o cliente, o que é uma prática avançada de desenvolvimento de APIs.
+
+Testes de API via Insomnia ou Postman: A sua API pode ser testada com sucesso usando ferramentas como o Postman ou Insomnia.
+
+Deploy em nuvem via Azure e Docker Compose: O processo de deploy agora utiliza Docker Compose, que pode ser executado em ambientes de nuvem como o Azure, proporcionando um deploy mais ágil e padronizado.
 
 ---
 
 ## 🛠️ Tecnologias Utilizadas
 
-- Desenvolvido via IntelliJ
-- Java 17 + Spring Boot 3.x
-- Spring Data JPA (com Oracle DB)
-- Lombok para redução de boilerplate
-- HATEOAS para links RESTful
-- Maven para gerenciamento de dependências
-- Deploy em nuvem (Render)
+- **Java 17** e **Spring Boot 3.x**
+- **Docker** e **Docker Compose**
+- **PostgreSQL**
+- **Maven** para gerenciamento de dependências
 
 <img width="1020" height="621" alt="image" src="https://github.com/user-attachments/assets/77f39a31-7e16-4159-b713-29c62bbdc8ff" />
 
