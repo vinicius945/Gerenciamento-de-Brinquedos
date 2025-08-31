@@ -14,6 +14,7 @@ A arquitetura é baseada em microsserviços e é definida no arquivo `docker-com
 O projeto foi desenvolvido seguindo as boas práticas de containerização, incluindo o uso de **imagens oficiais**, **`health checks`** para monitoramento e a execução da aplicação com um **usuário não-root** para maior segurança.
 
 A imagem a seguir ilustra o fluxo de comunicação e a arquitetura do sistema antigo e atual:
+
 #Arquitetura Antiga:
 
 <img width="464" height="175" alt="image" src="https://github.com/user-attachments/assets/91c41bdd-067c-4645-90a5-18f8e4413629" />
@@ -58,7 +59,10 @@ A API oferece um conjunto completo de operações de CRUD para gerenciar brinque
 ## Troubleshooting
 * **Erro 'docker' não é reconhecido**: Verifique se o Docker está instalado e rodando.
 * **Contêiner com status '(unhealthy)'**: Verifique se o `Actuator` foi adicionado e se o `application.properties` está configurado corretamente.
-* **Falha na conexão com o banco**: Verifique se as variáveis de ambiente no `docker-compose.yml` correspondem às configurações do PostgreSQL.## 🧪 Exemplos de Uso (com cURL)
+* **Falha na conexão com o banco**: Verifique se as variáveis de ambiente no `docker-compose.yml` correspondem às configurações do PostgreSQL.
+
+
+## 🧪 Exemplos de Uso (com cURL)
 
 ### 🔹 Criar um Brinquedo
 
