@@ -80,15 +80,11 @@ Deploy em nuvem via Azure e Docker Compose: O processo de deploy agora utiliza D
 
 curl -X POST https://brinquedos-revisao-java-cp4-2025.onrender.com/brinquedos \
 -H "Content-Type: application/json" \
--d '{
-"nome": "Bola de Futebol Infantil",
-"tipo": "Bola",
-"classificacao": "Esportivo",
-"tamanho": "P",
-"preco": 49.90
-}'
+-d { "nome": "Taco DE Baseball", "tipo": "Taco", "classificacao": "Esportivo", "tamanho": "G", "preco": 90.00 }
 
-<img width="1365" height="680" alt="image" src="https://github.com/user-attachments/assets/ea9f942f-c5aa-4bc6-9cf2-b472ebf6c7af" />
+
+<img width="899" height="601" alt="image" src="https://github.com/user-attachments/assets/454acba8-362b-412f-9fa1-4f897ac2a5a9" />
+
 
 ### 🔹 Atualizar um Brinquedo (PUT)
 
@@ -99,38 +95,40 @@ curl -X PUT https://brinquedos-revisao-java-cp4-2025.onrender.com/brinquedos/[ID
 "tipo": "Bola",
 "classificacao": "Esportivo",
 "tamanho": "M",
-"preco": 79.90
+"preco": 85.00
 }'
 
-<img width="1365" height="680" alt="image" src="https://github.com/user-attachments/assets/c9448e7b-20db-45e0-9d2a-58dc0abc0400" />
+<img width="921" height="547" alt="image" src="https://github.com/user-attachments/assets/f6bc1e7b-0efa-48b7-b1e3-48a6c89be689" />
 
 ### 🔹 Atualizar parcialmente um Brinquedo (PATCH)
 
 curl -X PATCH https://brinquedos-revisao-java-cp4-2025.onrender.com/brinquedos/[ID] \
 -H "Content-Type: application/json" \
 -d '{
-"preco": 59.90
+"tamanho": M
 }'
 
-<img width="1365" height="679" alt="image" src="https://github.com/user-attachments/assets/08f96405-3943-4706-a85a-08d272d64ea8" />
+<img width="916" height="600" alt="image" src="https://github.com/user-attachments/assets/b1022831-c763-4a6c-af80-04f195a7eb01" />
+
 
 ### 🔹 Listar Todos os Brinquedos
 
 curl https://brinquedos-revisao-java-cp4-2025.onrender.com/brinquedos
 
-<img width="1365" height="679" alt="image" src="https://github.com/user-attachments/assets/f5076ac2-71af-4c62-a9b1-802b7ead91eb" />
+<img width="942" height="588" alt="image" src="https://github.com/user-attachments/assets/ef2844d2-0bf5-42d3-9775-7949acf2f4ef" />
+
 
 ### 🔹 Listar Brinquedo por Id
 
 curl https://brinquedos-revisao-java-cp4-2025.onrender.com/brinquedos/[ID]
 
-<img width="1365" height="681" alt="image" src="https://github.com/user-attachments/assets/c6befc16-e1ef-4308-91b6-e21d13ff0591" />
+<img width="929" height="586" alt="image" src="https://github.com/user-attachments/assets/cae86ef9-fefa-46ed-8f57-442e12c1c50b" />
 
 ### 🔹 Excluir um Brinquedo
 
 curl -X DELETE https://brinquedos-revisao-java-cp4-2025.onrender.com/brinquedos/[ID]
 
-<img width="1365" height="678" alt="image" src="https://github.com/user-attachments/assets/952aaf2f-70d9-47aa-af12-f836db504e9e" />
+<img width="929" height="603" alt="image" src="https://github.com/user-attachments/assets/dc6990c5-f9ac-49fe-a764-9dbfae623eb6" />
 
 ---
 
@@ -180,6 +178,5 @@ curl -X DELETE https://brinquedos-revisao-java-cp4-2025.onrender.com/brinquedos/
 
 ## 🚀 Deploy
 
-O projeto foi deployado utilizando o Render.
-
-🔗 Link de acesso: [https://brinquedos-revisao-java-cp4-2025.onrender.com](https://brinquedos-revisao-java-cp4-2025.onrender.com)
+Processo de Deploy
+O processo de deploy deste projeto foi modernizado para ser simples, ágil e confiável, utilizando o Docker Compose. O arquivo docker-compose.yml automatiza a orquestração de todos os serviços, eliminando a necessidade de processos manuais.
