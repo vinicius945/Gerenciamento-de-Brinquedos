@@ -42,9 +42,6 @@ Deploy em nuvem via Azure e Docker Compose: O processo de deploy agora utiliza D
 - **Docker** e **Docker Compose**
 - **PostgreSQL**
 - **Maven** para gerenciamento de dependências
-
-<img width="1020" height="621" alt="image" src="https://github.com/user-attachments/assets/77f39a31-7e16-4159-b713-29c62bbdc8ff" />
-
 ---
 
 ## 🗂️ Entidade
