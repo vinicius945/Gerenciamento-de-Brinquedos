@@ -1,6 +1,10 @@
 version: '3.8'
 
 services:
+<<<<<<< HEAD
+=======
+ 
+>>>>>>> a3ed5f8cf7a479d47f656d6a8b4ad9ed207609dd
   database:
     image: postgres:14-alpine
     container_name: postgres_local
@@ -14,6 +18,10 @@ services:
     networks:
       - brinquedos-net
 
+<<<<<<< HEAD
+=======
+  
+>>>>>>> a3ed5f8cf7a479d47f656d6a8b4ad9ed207609dd
   app:
     build: .
     container_name: gerenciamento-brinquedos
@@ -31,9 +39,12 @@ services:
       interval: 30s
       timeout: 10s
       retries: 5
+<<<<<<< HEAD
     networks:
       - brinquedos-net
 
 networks:
   brinquedos-net:
     driver: bridge
+=======
+>>>>>>> a3ed5f8cf7a479d47f656d6a8b4ad9ed207609dd

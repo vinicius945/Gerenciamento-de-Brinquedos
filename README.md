@@ -1,68 +1,66 @@
-# 🧸 Brinquedos Revisão Java 2025 - API para Gestão de Brinquedos Esportivos Infantis
+## Descrição do Projeto
+Este projeto é uma **API RESTful** para gerenciar dados de brinquedos. A solução utiliza **Docker Compose** para orquestrar a aplicação Spring Boot e um banco de dados PostgreSQL em ambientes conteinerizados, criando um ambiente padronizado, seguro e reprodutível.
 
-Projeto desenvolvido para o **Checkpoint 4 de Java Advamced**, que consiste em uma **API RESTful** para gerenciamento de brinquedos esportivos destinados a crianças de até 12 anos, contemplando **CRUD completo**, persistência no banco Oracle FIAP, validação e HATEOAS.
+## Integrantes - Grupo LTAKN
+* Enzo Prado Soddano – RM: 557937
+* Lucas Resende Lima – RM: 556564
+* Vinicius Prates Altafini – RM: 559183
 
----
+## Arquitetura da Solução
+A arquitetura é baseada em microsserviços e é definida no arquivo `docker-compose.yml`, que interliga os seguintes componentes em uma rede interna do Docker:
+* **`app`**: Serviço da aplicação Spring Boot.
+* **`database`**: Serviço do banco de dados PostgreSQL.
 
-## 👨‍💻 Integrantes - Grupo LTAKN
+O projeto foi desenvolvido seguindo as boas práticas de containerização, incluindo o uso de **imagens oficiais**, **`health checks`** para monitoramento e a execução da aplicação com um **usuário não-root** para maior segurança.
 
-- **Enzo Prado Soddano** – RM: 557937  
-  [GitHub](https://github.com/DerBrasilianer)
+A imagem a seguir ilustra o fluxo de comunicação e a arquitetura do sistema antigo e atual:
 
-- **Lucas Resende Lima** – RM: 556564  
-  [GitHub](https://github.com/lucasresendelima)
+#Arquitetura Antiga:
 
-- **Vinicius Prates Altafini** – RM: 559183  
-  [GitHub](https://github.com/vinicius945)
-
----
-
-## 📡 Sobre o Projeto
-
-Esta solução foi desenvolvida com foco em boas práticas de arquitetura e tecnologias modernas, permitindo:
-
-- Cadastro e gerenciamento de **brinquedos esportivos infantis**
-- Persistência de dados em **Oracle Database** via **Spring Data JPA**
-- Validação de campos utilizando **Jakarta Validation**
-- Retorno de dados seguindo o padrão **HATEOAS** (nível de maturidade 3)
-- Testes de API via **Insomnia** ou **Postman**
-- Deploy em nuvem via Render ([Link do Deploy](https://brinquedos-revisao-java-cp4-2025.onrender.com))
+<img width="464" height="175" alt="image" src="https://github.com/user-attachments/assets/91c41bdd-067c-4645-90a5-18f8e4413629" />
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+# Arquitetura atual:
 
-- Desenvolvido via IntelliJ
-- Java 17 + Spring Boot 3.x
-- Spring Data JPA (com Oracle DB)
-- Lombok para redução de boilerplate
-- HATEOAS para links RESTful
-- Maven para gerenciamento de dependências
-- Deploy em nuvem (Render)
+<img width="771" height="201" alt="Diagrama sem título drawio" src="https://github.com/user-attachments/assets/acc2122c-edaa-4c76-9a6c-c05de20eec10" />
 
-<img width="1020" height="621" alt="image" src="https://github.com/user-attachments/assets/77f39a31-7e16-4159-b713-29c62bbdc8ff" />
 
----
+## Tecnologias Utilizadas
+* **Java 17** e **Spring Boot 3.x**
+* **Docker** e **Docker Compose**
+* **PostgreSQL**
+* **Spring Data JPA** e **Jakarta Validation**
+* **HATEOAS** (nível de maturidade 3)
+* **Maven** para gerenciamento de dependências
 
-## 🗂️ Entidade
+## Como Executar o Projeto
+1.  **Pré-requisitos**: Certifique-se de ter o Docker e o Docker Compose instalados na sua máquina.
+2.  **Clone o projeto** do seu repositório Git.
+3.  Abra o terminal na pasta raiz do projeto.
+4.  Execute o comando a seguir para construir a imagem da aplicação e iniciar todos os contêineres:
+    ```bash
+    docker compose up --build
+    ```
+5.  Aguarde a inicialização. A aplicação estará disponível em `http://localhost:8081`.
 
-- **Brinquedo:** Representa um brinquedo esportivo infantil
-    - Campos: `id`, `nome`, `tipo`, `classificacao`, `tamanho`, `preco`
+## Endpoints Principais (REST API)
+A API oferece um conjunto completo de operações de CRUD para gerenciar brinquedos.
 
----
+| Método | Endpoint | Descrição |
+| :--- | :--- | :--- |
+| `GET` | `/brinquedos` | Lista todos os brinquedos. |
+| `GET` | `/brinquedos/{id}` | Obtém brinquedo por ID. |
+| `POST` | `/brinquedos` | Cria novo brinquedo. |
+| `PUT` | `/brinquedos/{id}` | Atualiza brinquedo completo. |
+| `PATCH` | `/brinquedos/{id}` | Atualiza brinquedo parcial. |
+| `DELETE` | `/brinquedos/{id}` | Exclui brinquedo por ID. |
 
-## ⚙️ Endpoints Principais (REST API)
+## Troubleshooting
+* **Erro 'docker' não é reconhecido**: Verifique se o Docker está instalado e rodando.
+* **Contêiner com status '(unhealthy)'**: Verifique se o `Actuator` foi adicionado e se o `application.properties` está configurado corretamente.
+* **Falha na conexão com o banco**: Verifique se as variáveis de ambiente no `docker-compose.yml` correspondem às configurações do PostgreSQL.
 
-| Método | Endpoint                 | Descrição                     |
-|--------|--------------------------|-------------------------------|
-| GET    | `/brinquedos`            | Listar todos os brinquedos    |
-| GET    | `/brinquedos/{id}`       | Obter brinquedo por ID        |
-| POST   | `/brinquedos`            | Criar novo brinquedo          |
-| PUT    | `/brinquedos/{id}`       | Atualizar brinquedo completo  |
-| PATCH  | `/brinquedos/{id}`       | Atualizar brinquedo parcial   |
-| DELETE | `/brinquedos/{id}`       | Excluir brinquedo por ID      |
-
----
 
 ## 🧪 Exemplos de Uso (com cURL)
 
@@ -70,15 +68,11 @@ Esta solução foi desenvolvida com foco em boas práticas de arquitetura e tecn
 
 curl -X POST https://brinquedos-revisao-java-cp4-2025.onrender.com/brinquedos \
 -H "Content-Type: application/json" \
--d '{
-"nome": "Bola de Futebol Infantil",
-"tipo": "Bola",
-"classificacao": "Esportivo",
-"tamanho": "P",
-"preco": 49.90
-}'
+-d { "nome": "Taco DE Baseball", "tipo": "Taco", "classificacao": "Esportivo", "tamanho": "G", "preco": 90.00 }
 
-<img width="1365" height="680" alt="image" src="https://github.com/user-attachments/assets/ea9f942f-c5aa-4bc6-9cf2-b472ebf6c7af" />
+
+<img width="899" height="601" alt="image" src="https://github.com/user-attachments/assets/454acba8-362b-412f-9fa1-4f897ac2a5a9" />
+
 
 ### 🔹 Atualizar um Brinquedo (PUT)
 
@@ -89,38 +83,40 @@ curl -X PUT https://brinquedos-revisao-java-cp4-2025.onrender.com/brinquedos/[ID
 "tipo": "Bola",
 "classificacao": "Esportivo",
 "tamanho": "M",
-"preco": 79.90
+"preco": 85.00
 }'
 
-<img width="1365" height="680" alt="image" src="https://github.com/user-attachments/assets/c9448e7b-20db-45e0-9d2a-58dc0abc0400" />
+<img width="921" height="547" alt="image" src="https://github.com/user-attachments/assets/f6bc1e7b-0efa-48b7-b1e3-48a6c89be689" />
 
 ### 🔹 Atualizar parcialmente um Brinquedo (PATCH)
 
 curl -X PATCH https://brinquedos-revisao-java-cp4-2025.onrender.com/brinquedos/[ID] \
 -H "Content-Type: application/json" \
 -d '{
-"preco": 59.90
+"tamanho": M
 }'
 
-<img width="1365" height="679" alt="image" src="https://github.com/user-attachments/assets/08f96405-3943-4706-a85a-08d272d64ea8" />
+<img width="916" height="600" alt="image" src="https://github.com/user-attachments/assets/b1022831-c763-4a6c-af80-04f195a7eb01" />
+
 
 ### 🔹 Listar Todos os Brinquedos
 
 curl https://brinquedos-revisao-java-cp4-2025.onrender.com/brinquedos
 
-<img width="1365" height="679" alt="image" src="https://github.com/user-attachments/assets/f5076ac2-71af-4c62-a9b1-802b7ead91eb" />
+<img width="942" height="588" alt="image" src="https://github.com/user-attachments/assets/ef2844d2-0bf5-42d3-9775-7949acf2f4ef" />
+
 
 ### 🔹 Listar Brinquedo por Id
 
 curl https://brinquedos-revisao-java-cp4-2025.onrender.com/brinquedos/[ID]
 
-<img width="1365" height="681" alt="image" src="https://github.com/user-attachments/assets/c6befc16-e1ef-4308-91b6-e21d13ff0591" />
+<img width="929" height="586" alt="image" src="https://github.com/user-attachments/assets/cae86ef9-fefa-46ed-8f57-442e12c1c50b" />
 
 ### 🔹 Excluir um Brinquedo
 
 curl -X DELETE https://brinquedos-revisao-java-cp4-2025.onrender.com/brinquedos/[ID]
 
-<img width="1365" height="678" alt="image" src="https://github.com/user-attachments/assets/952aaf2f-70d9-47aa-af12-f836db504e9e" />
+<img width="929" height="603" alt="image" src="https://github.com/user-attachments/assets/dc6990c5-f9ac-49fe-a764-9dbfae623eb6" />
 
 ---
 
@@ -167,9 +163,3 @@ curl -X DELETE https://brinquedos-revisao-java-cp4-2025.onrender.com/brinquedos/
 }
 
 ---
-
-## 🚀 Deploy
-
-O projeto foi deployado utilizando o Render.
-
-🔗 Link de acesso: [https://brinquedos-revisao-java-cp4-2025.onrender.com](https://brinquedos-revisao-java-cp4-2025.onrender.com)
