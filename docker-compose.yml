@@ -1,7 +1,7 @@
 version: '3.8'
 
 services:
-  # Serviço para o banco de dados PostgreSQL
+ 
   database:
     image: postgres:14-alpine
     container_name: postgres_local
@@ -13,7 +13,7 @@ services:
     ports:
       - "5432:5432"
 
-  # Serviço para a sua aplicação Spring Boot
+  
   app:
     build: .
     container_name: gerenciamento-brinquedos
