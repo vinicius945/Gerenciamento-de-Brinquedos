@@ -74,6 +74,25 @@ Deploy em nuvem via Azure e Docker Compose: O processo de deploy agora utiliza D
 
 ---
 
+## Como Executar o Projeto
+1.  Clone este repositório do Git.
+2.  Navegue até a pasta raiz do projeto.
+3.  Execute o comando a seguir para construir e iniciar os contêineres:
+    ```bash
+    docker compose up --build
+    ```
+4.  A aplicação estará disponível em `http://localhost:8081`.
+
+## Comandos Essenciais
+- **Iniciar os contêineres:** `docker compose up`
+- **Parar e remover os contêineres:** `docker compose down`
+- **Ver o status dos contêineres:** `docker ps`
+- **Ver os logs da aplicação:** `docker logs gerenciamento-brinquedos`
+
+## Troubleshooting
+- **Erro 'docker' não reconhecido**: Verifique a instalação do Docker.
+- **Contêiner com status '(unhealthy)'**: Verifique se a aplicação iniciou e se o Spring Boot Actuator está configurado.
+--
 ## 🧪 Exemplos de Uso (com cURL)
 
 ### 🔹 Criar um Brinquedo
