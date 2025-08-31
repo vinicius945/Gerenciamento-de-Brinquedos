@@ -1,99 +1,64 @@
-# 🧸 Brinquedos Revisão Java 2025 - API para Gestão de Brinquedos Esportivos Infantis
+## Descrição do Projeto
+Este projeto é uma **API RESTful** para gerenciar dados de brinquedos. A solução utiliza **Docker Compose** para orquestrar a aplicação Spring Boot e um banco de dados PostgreSQL em ambientes conteinerizados, criando um ambiente padronizado, seguro e reprodutível.
 
-Este projeto é uma **API RESTful** para gerenciar brinquedos. A solução utiliza **Docker Compose** para orquestrar a aplicação Spring Boot e um banco de dados PostgreSQL em ambientes conteinerizados.
+## Integrantes - Grupo LTAKN
+* Enzo Prado Soddano – RM: 557937
+* Lucas Resende Lima – RM: 556564
+* Vinicius Prates Altafini – RM: 559183
 
+## Arquitetura da Solução
+A arquitetura é baseada em microsserviços e é definida no arquivo `docker-compose.yml`, que interliga os seguintes componentes em uma rede interna do Docker:
+* **`app`**: Serviço da aplicação Spring Boot.
+* **`database`**: Serviço do banco de dados PostgreSQL.
 
----
+O projeto foi desenvolvido seguindo as boas práticas de containerização, incluindo o uso de **imagens oficiais**, **`health checks`** para monitoramento e a execução da aplicação com um **usuário não-root** para maior segurança.
 
-## 👨‍💻 Integrantes - Grupo LTAKN
-
-- **Enzo Prado Soddano** – RM: 557937  
-  [GitHub](https://github.com/DerBrasilianer)
-
-- **Lucas Resende Lima** – RM: 556564  
-  [GitHub](https://github.com/lucasresendelima)
-
-- **Vinicius Prates Altafini** – RM: 559183  
-  [GitHub](https://github.com/vinicius945)
-
----
-
-## 📡 Sobre o Projeto
-
-Esta solução foi desenvolvida com foco em boas práticas de arquitetura e tecnologias modernas, permitindo:
-
-Cadastro e gerenciamento de brinquedos esportivos infantis: A aplicação continua cumprindo o seu objetivo principal, que é gerenciar os dados de brinquedos.
-
-Persistência de dados em PostgreSQL: A persistência de dados foi migrada do Oracle DB para o PostgreSQL usando Spring Data JPA, de acordo com a sua nova arquitetura com Docker Compose.
-
-Validação de campos utilizando Jakarta Validation: A validação de campos continua sendo um componente importante para a integridade dos dados da sua API.
-
-Retorno de dados seguindo o padrão HATEOAS (nível de maturidade 3): A API continua fornecendo links HATEOAS para guiar o cliente, o que é uma prática avançada de desenvolvimento de APIs.
-
-Testes de API via Insomnia ou Postman: A sua API pode ser testada com sucesso usando ferramentas como o Postman ou Insomnia.
-
-Deploy em nuvem via Azure e Docker Compose: O processo de deploy agora utiliza Docker Compose, que pode ser executado em ambientes de nuvem como o Azure, proporcionando um deploy mais ágil e padronizado.
-
----
-
-## 🛠️ Tecnologias Utilizadas
-
-- **Java 17** e **Spring Boot 3.x**
-- **Docker** e **Docker Compose**
-- **PostgreSQL**
-- **Maven** para gerenciamento de dependências
----
-
-## 🗂️ Entidade
-
-- **Brinquedo:** Representa um brinquedo esportivo infantil
-    - Campos: `id`, `nome`, `tipo`, `classificacao`, `tamanho`, `preco`
-
----
+A imagem a seguir ilustra o fluxo de comunicação e a arquitetura do sistema antigo e atual:
 #Arquitetura Antiga:
 
 <img width="464" height="175" alt="image" src="https://github.com/user-attachments/assets/91c41bdd-067c-4645-90a5-18f8e4413629" />
 
 ---
 
-# Arquitetura nova:
+# Arquitetura atual:
 
 <img width="771" height="201" alt="Diagrama sem título drawio" src="https://github.com/user-attachments/assets/acc2122c-edaa-4c76-9a6c-c05de20eec10" />
 
 
-## ⚙️ Endpoints Principais (REST API)
-
-| Método | Endpoint                 | Descrição                     |
-|--------|--------------------------|-------------------------------|
-| GET    | `/brinquedos`            | Listar todos os brinquedos    |
-| GET    | `/brinquedos/{id}`       | Obter brinquedo por ID        |
-| POST   | `/brinquedos`            | Criar novo brinquedo          |
-| PUT    | `/brinquedos/{id}`       | Atualizar brinquedo completo  |
-| PATCH  | `/brinquedos/{id}`       | Atualizar brinquedo parcial   |
-| DELETE | `/brinquedos/{id}`       | Excluir brinquedo por ID      |
-
----
+## Tecnologias Utilizadas
+* **Java 17** e **Spring Boot 3.x**
+* **Docker** e **Docker Compose**
+* **PostgreSQL**
+* **Spring Data JPA** e **Jakarta Validation**
+* **HATEOAS** (nível de maturidade 3)
+* **Maven** para gerenciamento de dependências
 
 ## Como Executar o Projeto
-1.  Clone este repositório do Git.
-2.  Navegue até a pasta raiz do projeto.
-3.  Execute o comando a seguir para construir e iniciar os contêineres:
+1.  **Pré-requisitos**: Certifique-se de ter o Docker e o Docker Compose instalados na sua máquina.
+2.  **Clone o projeto** do seu repositório Git.
+3.  Abra o terminal na pasta raiz do projeto.
+4.  Execute o comando a seguir para construir a imagem da aplicação e iniciar todos os contêineres:
     ```bash
     docker compose up --build
     ```
-4.  A aplicação estará disponível em `http://localhost:8081`.
+5.  Aguarde a inicialização. A aplicação estará disponível em `http://localhost:8081`.
 
-## Comandos Essenciais
-- **Iniciar os contêineres:** `docker compose up`
-- **Parar e remover os contêineres:** `docker compose down`
-- **Ver o status dos contêineres:** `docker ps`
-- **Ver os logs da aplicação:** `docker logs gerenciamento-brinquedos`
+## Endpoints Principais (REST API)
+A API oferece um conjunto completo de operações de CRUD para gerenciar brinquedos.
+
+| Método | Endpoint | Descrição |
+| :--- | :--- | :--- |
+| `GET` | `/brinquedos` | Lista todos os brinquedos. |
+| `GET` | `/brinquedos/{id}` | Obtém brinquedo por ID. |
+| `POST` | `/brinquedos` | Cria novo brinquedo. |
+| `PUT` | `/brinquedos/{id}` | Atualiza brinquedo completo. |
+| `PATCH` | `/brinquedos/{id}` | Atualiza brinquedo parcial. |
+| `DELETE` | `/brinquedos/{id}` | Exclui brinquedo por ID. |
 
 ## Troubleshooting
-- **Erro 'docker' não reconhecido**: Verifique a instalação do Docker.
-- **Contêiner com status '(unhealthy)'**: Verifique se a aplicação iniciou e se o Spring Boot Actuator está configurado.
---
-## 🧪 Exemplos de Uso (com cURL)
+* **Erro 'docker' não é reconhecido**: Verifique se o Docker está instalado e rodando.
+* **Contêiner com status '(unhealthy)'**: Verifique se o `Actuator` foi adicionado e se o `application.properties` está configurado corretamente.
+* **Falha na conexão com o banco**: Verifique se as variáveis de ambiente no `docker-compose.yml` correspondem às configurações do PostgreSQL.## 🧪 Exemplos de Uso (com cURL)
 
 ### 🔹 Criar um Brinquedo
 
@@ -194,8 +159,3 @@ curl -X DELETE https://brinquedos-revisao-java-cp4-2025.onrender.com/brinquedos/
 }
 
 ---
-
-## 🚀 Deploy
-
-Processo de Deploy
-O processo de deploy deste projeto foi modernizado para ser simples, ágil e confiável, utilizando o Docker Compose. O arquivo docker-compose.yml automatiza a orquestração de todos os serviços, eliminando a necessidade de processos manuais.
