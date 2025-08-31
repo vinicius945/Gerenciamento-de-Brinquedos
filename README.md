@@ -50,7 +50,11 @@ Esta solução foi desenvolvida com foco em boas práticas de arquitetura e tecn
     - Campos: `id`, `nome`, `tipo`, `classificacao`, `tamanho`, `preco`
 
 ---
+#Arquitetura Antiga:
 
+<img width="464" height="175" alt="image" src="https://github.com/user-attachments/assets/91c41bdd-067c-4645-90a5-18f8e4413629" />
+
+---
 
 # Arquitetura nova:
 
